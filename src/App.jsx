@@ -19,7 +19,7 @@ const [counter, dispatch] = useReducer(counterReducer, 10)
 
 const [inputValue, setInputValue] = useState(0)
 
-const mathArr = ['+', '-']
+const mathArr = ['+', '-', '*', '/', 'xʸ', '√', 'Remainder' ]
 
   return (
     <>
@@ -54,8 +54,25 @@ const mathArr = ['+', '-']
         }
       )}>-</button>
        */}
-       
-      {/* Make a map function that buils a button for each index of the Math array */}
+
+      {/* Make a map function that builds a button for each index of the Math array */}
+      {
+        mathArr.map(element => {
+          return (
+            <button
+              onClick={
+                () => dispatch(
+                  {
+                    type: element,
+                    value: inputValue
+                 }
+                )
+               }
+            // >{counter} {' '} {element} {' '} {inputValue}</button>
+            >{element}</button>
+          )
+        })
+      }
 
     </div>
 

@@ -15,11 +15,22 @@ export default function counterReducer(state, action) {
             return state - 1
         case 42:
             return 42
+        case '/':
+            return state / action.value
         case '+':
             return state + action.value
         case '-':
             return state - action.value
+        case '*':
+            return state * action.value
+        case 'xʸ':
+            return state ** action.value  
+        case '√':
+            return Math.sqrt(state)
+        case 'Remainder':
+            return state % action.value   
         default:
-            break;
+            alert('Not a type');
+            return state
     }
 }
