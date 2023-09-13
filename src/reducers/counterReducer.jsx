@@ -6,10 +6,17 @@ export default function counterReducer(state, action) {
     //switch case matches the action.type to the case
     // the return in the case sets the state
     switch (action.type) {
-        case "Add":
-            
-            return state + 1;
-    
+        case 'RESET':
+            return 0
+        case 'increment':
+            state++
+            return state;
+        case 'decrement':
+            return state - 1
+        case 42:
+            return 42
+        case '+':
+            return state + action.value
         default:
             break;
     }

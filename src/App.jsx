@@ -17,21 +17,37 @@ function App() {
 
 const [counter, dispatch] = useReducer(counterReducer, 10)
 
+const [inputValue, setInputValue] = useState(0)
+
   return (
     <>
     <div>
       <h1>Counter: {counter}</h1>
+      <input 
+        type='number'
+        onChange={e => setInputValue(parseInt(e.target.value))}
+      />
+      <br />
       {/* <button onClick={()=>setCounter(counter+1)}>Add</button> */}
       {/* 
       () => dispatch({}) 
          dispatch sends the object to the reducer as the action param
       */}
+      <button onClick={() => dispatch({type: 'RESET'})}>RESET</button>
+      {/* button that sets the state to 42 */}
+      <button onClick={() => dispatch({type: 42})}>The Ultimate Answer</button>
+      <button onClick={() => dispatch({type: 'increment'})}>++Increment++</button>
+      <button onClick={() => dispatch({type: 'decrement'})}>--Decrement--</button>
+      <br />
       <button onClick={() => dispatch(
         {
-          type: 'Add'
+          type: '+',
+          value: inputValue
         }
-      )}>Add reducer</button>
+      )}>Add</button>
+
     </div>
+
      
     </>
   )
