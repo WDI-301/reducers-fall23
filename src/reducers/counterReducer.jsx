@@ -17,6 +17,8 @@ export default function counterReducer(state, action) {
             return 42
         case '+':
             return state + action.value
+        case '-':
+            return state - action.value
         default:
             break;
     }
